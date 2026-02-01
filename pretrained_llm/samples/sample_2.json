@@ -1,0 +1,19 @@
+{
+    "name": "abstract_analogy_2",
+    "description": "Analogy task with two complete functor edges for Dirichlet energy computation.",
+    "prompt": "<e1>a<e2>, <e1>b<e3>. <e6>a<e4>, <e6>b<e7>. <e1>~<e6>, <e2>~<e4>, <e3>~<e",
+    "target_token": "7",
+    "graph": {
+        "edges": [
+            {"source": "<e1>", "target": "<e6>", "type": "functor"},
+            {"source": "<e2>", "target": "<e4>", "type": "functor"}
+        ]
+    },
+    "node_positions": {
+        "<e1>": {"proxy_token": "1", "occurrence": -1},
+        "<e6>": {"proxy_token": "6", "occurrence": -1},
+        "<e2>": {"proxy_token": "2", "occurrence": -1},
+        "<e4>": {"proxy_token": "4", "occurrence": -1}
+    },
+    "notes": "Two complete functor edges for computing Dirichlet energy with multiple edges."
+}

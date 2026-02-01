@@ -1,0 +1,22 @@
+{
+    "name": "abstract_analogy_4_entities",
+    "description": "Analogy task with 4 entities per category (from Appendix I).",
+    "prompt": "<e1>a<e2>, <e1>b<e3>, <e1>c<e4>. <e6>a<e5>, <e6>b<e7>, <e6>c<e8>. <e1>~<e6>, <e2>~<e5>, <e3>~<e7>, <e4>~<e",
+    "target_token": "8",
+    "graph": {
+        "edges": [
+            {"source": "<e1>", "target": "<e6>", "type": "functor"},
+            {"source": "<e2>", "target": "<e5>", "type": "functor"},
+            {"source": "<e3>", "target": "<e7>", "type": "functor"}
+        ]
+    },
+    "node_positions": {
+        "<e1>": {"proxy_token": "1", "occurrence": -1},
+        "<e6>": {"proxy_token": "6", "occurrence": -1},
+        "<e2>": {"proxy_token": "2", "occurrence": -1},
+        "<e5>": {"proxy_token": "5", "occurrence": -1},
+        "<e3>": {"proxy_token": "3", "occurrence": -1},
+        "<e7>": {"proxy_token": "7", "occurrence": -1}
+    },
+    "notes": "4 entities per category. Tests scaling behavior as in paper's Appendix I."
+}

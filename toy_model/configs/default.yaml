@@ -1,0 +1,43 @@
+# Emergent Analogy - Default Configuration
+
+# Data generation settings
+data:
+  num_entities: 10
+  num_relations: 10000
+  sub_size: 5  # |E1| = |E2|
+  atomic_ood_ratio: 0.0
+  compositional_ood_ratio: 0.1
+  analogical_ood_ratio: 0.1
+  include_f_inverse: false
+  duplicate_relation: false
+  seed: 42
+  output_dir: "/app/data/composition_functor.10.10000.5"
+
+# Training settings
+data_dir: "/app/data/composition_functor.10.10000.5"
+save_dir: "/app/runs/functor_experiment"
+
+# Model architecture
+d_model: 128
+n_layer: 2
+n_head: 1
+dropout: 0.0
+max_len: 64
+
+# Training hyperparameters
+batch_size: 64
+epochs: 100
+lr: 1e-4
+weight_decay: 0.0
+warmup_steps: 0
+use_amp: true
+
+# Logging and checkpointing
+use_wandb: true
+project: "emergent_analogy_20260115"
+run_name: null  # Auto-generated if null
+log_every: 50
+eval_every: 10
+save_every: 0  # 0 = disable checkpoint saving
+num_workers: 0  # 0 recommended for Docker
+seed: 42

@@ -1,0 +1,16 @@
+{
+    "name": "abstract_analogy_1",
+    "description": "Basic analogy task with 3 entities per category. The model should predict <e7> as the analogical counterpart of <e3>.",
+    "prompt": "<e1>a<e2>, <e1>b<e3>. <e6>a<e4>, <e6>b<e7>. <e1>~<e6>, <e3>~<e",
+    "target_token": "7",
+    "graph": {
+        "edges": [
+            {"source": "<e1>", "target": "<e6>", "type": "functor"}
+        ]
+    },
+    "node_positions": {
+        "<e1>": {"proxy_token": "1", "occurrence": -1},
+        "<e6>": {"proxy_token": "6", "occurrence": -1}
+    },
+    "notes": "Only include complete functor edges. <e3>~<e7> is incomplete (target 7 is being predicted)."
+}

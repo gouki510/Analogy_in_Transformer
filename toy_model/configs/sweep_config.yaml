@@ -1,0 +1,40 @@
+# Sweep Configuration for Emergent Analogy Experiments
+
+# Data parameters to sweep
+data_sweep:
+  num_entities: [30]
+  num_relations: [10000]
+  atomic_ood_ratio: [0.0] #[0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  compositional_ood_ratio: [0.0, 0.1, 0.3, 0.5, 0.7, 0.9]
+  analogical_ood_ratio: [0.1, 0.3, 0.5, 0.7, 0.9]
+  include_f_inverse: [false]
+
+# Optimizer parameters to sweep
+optimizer_sweep:
+  lr: [0.0001, 0.001, 0.01, 0.1]
+  weight_decay: [0.0, 0.01, 0.1, 1]
+  batch_size: [32, 64, 128, 256]
+
+# Fixed parameters (not swept)
+fixed:
+  # Data
+  duplicate_relation: false
+  seed: 2
+  
+  # Model
+  d_model: 128
+  n_layer: 1
+  n_head: 1
+  dropout: 0.0
+  max_len: 64
+  
+  # Training
+  epochs: 1000
+  warmup_steps: 0
+  use_amp: true
+  
+  # Logging
+  log_every: 50
+  eval_every: 10
+  save_every: 0  # 0 = disable checkpoint saving
+  num_workers: 0  # 0 recommended for Docker

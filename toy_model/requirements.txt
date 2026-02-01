@@ -1,0 +1,11 @@
+# Core dependencies
+torch>=2.0.0
+numpy>=1.24.0
+tqdm>=4.65.0
+pyyaml>=6.0
+
+# Optional: Logging
+wandb>=0.15.0
+
+# Optional: Visualization
+matplotlib>=3.7.0

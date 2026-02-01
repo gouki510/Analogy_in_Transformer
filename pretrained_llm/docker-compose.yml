@@ -1,0 +1,35 @@
+services:
+  analogy-analysis:
+    build: .
+    volumes:
+      # Mount results directory to persist outputs
+      - ./results:/app/results
+      # Mount samples directory for input
+      - ./samples:/app/samples
+      # Mount Hugging Face cache (optional, for faster model loading)
+      - ~/.cache/huggingface:/root/.cache/huggingface
+    environment:
+      - HF_HOME=/root/.cache/huggingface
+      - HF_TOKEN=${HF_TOKEN}
+    # GPU support (uncomment if using NVIDIA GPU)
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    # Default command (can be overridden)
+    command: ["--sample", "samples/sample_1.json", "--device", "cuda", "--plot"]
+
+  # CPU-only version (use if no GPU available)
+  analogy-analysis-cpu:
+    build: .
+    volumes:
+      - ./results:/app/results
+      - ./samples:/app/samples
+      - ~/.cache/huggingface:/root/.cache/huggingface
+    environment:
+      - HF_HOME=/root/.cache/huggingface
+      - HF_TOKEN=${HF_TOKEN}
+    command: ["--sample", "samples/sample_1.json", "--device", "cpu", "--plot"]
